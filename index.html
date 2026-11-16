@@ -1,0 +1,554 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mind Retreat · O que nos reserva o futuro?</title>
+<meta name="description" content="Mind Retreat no Grande Real Villa Itália, 28 de novembro de 2026, 9h30 às 13h00. Com Mafalda Almeida, Isabel Neves e Judite Sousa. 20 € por pessoa.">
+<meta property="og:title" content="Mind Retreat · O que nos reserva o futuro?">
+<meta property="og:description" content="28 de novembro de 2026 · Grande Real Villa Itália · Com Mafalda Almeida, Isabel Neves e Judite Sousa.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;0,800;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   TOKENS: cores medidas no flyer oficial do evento
+   areia (fundo esquerdo do flyer) · cobre (fundo direito)
+   cacau (escuro profundo) · vinho (título serifado vermelho)
+   ============================================================ */
+:root{
+  --creme:#F6EFE8;          /* papel claro dominante */
+  --nevoa:#EEE2D6;          /* claro alternado */
+  --areia:#B28B6C;          /* medido: fundo esquerdo do flyer */
+  --areia-clara:#C9A88C;
+  --cobre:#AD6348;          /* medido: fundo direito do flyer */
+  --cacau:#3A2820;          /* blocos escuros, botão primário (13.6:1 sobre creme) */
+  --cacau-2:#4A3329;
+  --texto:#3A2820;
+  --texto-suave:#6E5648;    /* 6.1:1 sobre creme */
+  --vinho:#A8402E;          /* medido: "O QUE NOS RESERVA O FUTURO?" */
+  --vinho-escuro:#8E3424;   /* eyebrows sobre claro: 6.6:1 sobre creme */
+  --vinho-claro:#E8A48F;    /* acento sobre fundo escuro: 6.9:1 sobre cacau */
+  --linha:rgba(58,40,32,.16);
+  --linha-escura:rgba(255,255,255,.15);
+
+  --f-titulo:'Playfair Display', Georgia, serif;
+  --f-corpo:'Montserrat', system-ui, sans-serif;
+
+  --sec:clamp(76px,10vw,136px);
+  --max:1280px;
+  --pad:clamp(20px,5vw,64px);
+  --gap-col:clamp(40px,6vw,90px);
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:84px;-webkit-text-size-adjust:100%}
+body{font:400 16.5px/1.72 var(--f-corpo);color:var(--texto);background:var(--creme);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+@media (max-width:620px){body{font-size:16px}}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+::selection{background:var(--vinho);color:#fff}
+:focus-visible{outline:2px solid var(--vinho);outline-offset:3px}
+.saltar{position:absolute;left:-9999px;top:8px;background:var(--cacau);color:#fff;padding:10px 16px;border-radius:999px;z-index:99}
+.saltar:focus{left:8px}
+
+/* ---------- Tipografia ---------- */
+h1,h2,h3{font-family:var(--f-titulo);font-weight:500;color:var(--cacau);text-wrap:balance}
+h2{font-size:clamp(2rem,4vw,3.3rem);line-height:1.1;letter-spacing:-.015em;max-width:18ch}
+h3{font-size:clamp(1.3rem,2vw,1.7rem);line-height:1.25}
+h2 em{font-style:italic;color:var(--vinho)}
+p{max-width:60ch;text-wrap:pretty}
+.lead{font-size:clamp(1.05rem,1.2vw,1.15rem);color:var(--texto-suave)}
+.eyebrow{display:flex;align-items:center;gap:12px;font:600 .74rem/1 var(--f-corpo);letter-spacing:.24em;text-transform:uppercase;color:var(--vinho-escuro)}
+.eyebrow::before{content:"";width:28px;height:1px;background:currentColor;opacity:.6}
+.eyebrow + h2{margin-top:20px}
+h2 + p,h2 + .lead{margin-top:22px}
+p + p{margin-top:16px}
+
+/* ---------- Layout ---------- */
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
+.sec{padding:var(--sec) 0}
+.sec--nevoa{background:var(--nevoa)}
+.sec--escura{background:var(--cacau);color:rgba(255,255,255,.78)}
+.sec--escura h2,.sec--escura h3{color:#fff}
+.sec--escura h2 em{color:var(--vinho-claro)}
+.sec--escura .eyebrow{color:var(--vinho-claro)}
+.sec-cab{max-width:820px;margin-bottom:clamp(44px,6vw,72px)}
+
+/* ---------- Botões ---------- */
+.btn{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:10px;overflow:hidden;isolation:isolate;cursor:pointer;
+  padding:17px 32px;border-radius:999px;border:1px solid var(--cacau);
+  font:600 13.5px/1 var(--f-corpo);letter-spacing:.14em;text-transform:uppercase;text-decoration:none;
+  background:var(--cacau);color:#fff;transition:color .38s var(--ease),border-color .38s}
+.btn::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--vinho);transform:scaleX(0);transform-origin:left;transition:transform .4s cubic-bezier(.22,.61,.36,1)}
+.btn:hover::before{transform:scaleX(1)}
+.btn:hover{border-color:var(--vinho)}
+.btn .seta{transition:transform .3s var(--ease)}
+.btn:hover .seta{transform:translateX(4px)}
+.btn--linha{background:transparent;color:var(--cacau)}
+.btn--linha::before{background:var(--cacau)}
+.btn--linha:hover{color:#fff;border-color:var(--cacau)}
+.btn--claro{background:#fff;color:var(--cacau);border-color:#fff}
+.btn--claro:hover{color:#fff;border-color:var(--vinho)}
+.btn[disabled]{opacity:.6;pointer-events:none}
+.link{font-weight:500;text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:2px;transition:opacity .3s}
+.link:hover{opacity:.75}
+.micro{display:flex;align-items:center;gap:8px;margin-top:16px;font-size:.86rem;color:var(--texto-suave)}
+.micro::before{content:"";flex:none;width:6px;height:6px;border-radius:50%;background:var(--vinho)}
+
+/* ---------- Header fixo ---------- */
+.topo{position:fixed;inset:0 0 auto;z-index:50;transition:background .35s,box-shadow .35s}
+.topo .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;padding-block:16px}
+.topo__logo img{height:60px;width:auto;transform-origin:left center;transition:transform .35s var(--ease)}
+.topo__nav{display:flex;gap:32px;list-style:none}
+.topo__nav a{font:500 .78rem var(--f-corpo);letter-spacing:.16em;text-transform:uppercase;text-decoration:none;color:#fff;opacity:.9}
+.topo__nav a:hover{opacity:1}
+.topo .btn{padding:12px 22px;font-size:12px;background:#fff;color:var(--cacau);border-color:#fff}
+.topo .btn:hover{color:#fff;border-color:var(--vinho)}
+.topo.rolado{background:rgba(58,40,32,.9);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 1px 0 var(--linha-escura)}
+.topo.rolado .topo__logo img{transform:scale(.78)}
+@media (max-width:960px){.topo__nav{display:none}}
+@media (max-width:520px){.topo__logo img{height:48px}.topo .btn{padding:11px 16px;letter-spacing:.1em}}
+
+/* ---------- Hero: réplica do flyer ---------- */
+.hero{position:relative;overflow:hidden;min-height:min(100svh,920px);display:flex;align-items:stretch;color:#fff;
+  background:
+    radial-gradient(55% 70% at 22% 55%,rgba(222,196,172,.55),transparent 70%),
+    linear-gradient(100deg,#B79172 0%,#B28B6C 30%,#8D5F45 52%,#9A5A40 72%,#B26A4B 88%,#A95D3F 100%)}
+/* riscas verticais suaves, como as cortinas do fundo do flyer */
+.hero::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.35;
+  background:repeating-linear-gradient(90deg,rgba(255,255,255,0) 0 46px,rgba(255,255,255,.06) 46px 48px,rgba(0,0,0,.05) 48px 92px)}
+.hero__grelha{position:relative;width:100%;max-width:1440px;margin:0 auto;padding:0 var(--pad);
+  display:grid;grid-template-columns:minmax(0,1.22fr) minmax(0,.86fr) minmax(0,.36fr);align-items:end}
+.hero__texto{align-self:center;padding:124px 0 64px;position:relative;z-index:3}
+.sombra{text-shadow:0 1px 14px rgba(70,40,25,.35),0 1px 2px rgba(70,40,25,.25)}
+.hero__data{font:600 clamp(1.25rem,2.3vw,2.1rem)/1.3 var(--f-corpo);letter-spacing:.02em}
+.hero__nome{margin-top:clamp(20px,2.6vw,34px);font:300 clamp(2.2rem,4.9vw,4.6rem)/1 var(--f-corpo);letter-spacing:.01em;text-transform:uppercase;color:#FDF6F0;white-space:nowrap}
+h1.hero__titulo{margin-top:6px;font:800 clamp(2.1rem,4.3vw,4.1rem)/.98 var(--f-titulo);letter-spacing:-.025em;text-transform:uppercase;color:var(--vinho);
+  text-shadow:0 1px 0 rgba(255,235,220,.35)}
+.hero__com{margin-top:clamp(18px,2.2vw,28px);font:600 clamp(1.15rem,2.2vw,2rem)/1.2 var(--f-corpo);letter-spacing:.03em;text-transform:uppercase}
+.hero__convidadas{margin-top:12px;font:600 clamp(.95rem,1.5vw,1.35rem)/1.45 var(--f-corpo);letter-spacing:.04em;text-transform:uppercase}
+.hero__local{display:flex;align-items:center;gap:14px;margin-top:clamp(26px,3.4vw,46px);font:500 clamp(.85rem,1.2vw,1.1rem)/1.3 var(--f-corpo);letter-spacing:.06em;text-transform:uppercase}
+.hero__local::before{content:"";width:clamp(40px,6vw,92px);height:1.5px;background:#fff;opacity:.85}
+.hero__local svg{flex:none;width:20px;height:20px}
+.hero__ctas{display:flex;flex-wrap:wrap;align-items:center;gap:16px 26px;margin-top:34px}
+.hero__ctas .link{color:#fff;font-size:.9rem}
+.hero__mafalda{position:relative;z-index:1;align-self:stretch}
+/* desktop: a foto ocupa a altura toda do hero e sangra para os lados, como no flyer */
+@media (min-width:1001px){
+  .hero__mafalda img{position:absolute;bottom:0;left:50%;transform:translateX(-52%);height:100%;width:auto;max-width:none}
+}
+.hero__circulos{align-self:center;display:flex;flex-direction:column;gap:clamp(16px,2.4vw,30px);padding:120px 0 60px;position:relative;z-index:2}
+.hero__circulos figure{position:relative}
+.hero__circulos img{width:100%;aspect-ratio:1;border-radius:50%;box-shadow:0 24px 50px -24px rgba(50,25,15,.55)}
+.hero__circulos figcaption{position:absolute;left:50%;bottom:-6px;transform:translateX(-50%);white-space:nowrap;padding:6px 14px;border-radius:999px;background:rgba(58,40,32,.78);backdrop-filter:blur(6px);font:600 .64rem/1 var(--f-corpo);letter-spacing:.18em;text-transform:uppercase}
+
+@media (max-width:1000px){
+  .hero__grelha{grid-template-columns:1fr;padding-top:96px}
+  .hero__texto{order:2;padding:8px 0 64px;text-align:left}
+  .hero__visual{order:1}
+  .hero__mafalda,.hero__circulos{margin:0}
+}
+/* em ecrã estreito, a Mafalda + círculos formam um bloco próprio */
+.hero__visual{display:contents}
+@media (max-width:1000px){
+  .hero__visual{display:grid;grid-template-columns:1fr .5fr;align-items:end;gap:0;position:relative}
+  .hero__mafalda{margin-left:-10%;margin-right:-16%}
+  .hero__mafalda img{width:100%;height:auto}
+  .hero__circulos{padding:0 0 18%;gap:14px}
+  /* véu claro atrás do texto para o vermelho manter contraste, como no flyer */
+  .hero{background:
+    radial-gradient(90% 38% at 30% 66%,rgba(226,200,176,.62),transparent 75%),
+    linear-gradient(170deg,#B28B6C 0%,#A27A5D 45%,#B28B6C 70%,#A9603F 100%)}
+}
+@media (max-width:520px){
+  .btn{padding:16px 22px;letter-spacing:.08em;line-height:1.25;text-align:center}
+}
+
+/* ---------- Faixa corrida ---------- */
+.faixa{background:var(--cacau);color:#fff;overflow:hidden;padding:18px 0;white-space:nowrap}
+.faixa__trilho{display:inline-flex;gap:40px;animation:correr 42s linear infinite;font:italic 500 1.2rem var(--f-titulo)}
+.faixa__trilho span::after{content:"✦";margin-left:40px;color:var(--vinho-claro);font-style:normal;font-size:.8em}
+@keyframes correr{to{transform:translateX(-50%)}}
+
+/* ---------- O encontro ---------- */
+.encontro{display:grid;grid-template-columns:1.1fr .9fr;gap:var(--gap-col);align-items:start}
+@media (max-width:1000px){.encontro{grid-template-columns:1fr}}
+.factos{list-style:none;border-top:1px solid var(--linha)}
+.factos li{display:grid;grid-template-columns:120px 1fr;gap:16px;align-items:baseline;padding:22px 0;border-bottom:1px solid var(--linha)}
+.factos span{font:600 .7rem/1.3 var(--f-corpo);letter-spacing:.2em;text-transform:uppercase;color:var(--vinho-escuro)}
+.factos strong{font:500 clamp(1.25rem,1.8vw,1.55rem)/1.25 var(--f-titulo);color:var(--cacau)}
+.factos small{display:block;margin-top:4px;font:400 .9rem/1.4 var(--f-corpo);color:var(--texto-suave)}
+.citacao{margin-top:36px;padding-left:22px;border-left:1px solid var(--vinho);font:italic 500 clamp(1.2rem,1.8vw,1.5rem)/1.4 var(--f-titulo);color:var(--cacau);max-width:32ch}
+
+/* ---------- Oradoras ---------- */
+.oradoras{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(20px,3vw,40px)}
+@media (max-width:1000px){.oradoras{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.oradoras{grid-template-columns:1fr 1fr;gap:28px 16px}}
+.oradora img,.oradora__surpresa{width:100%;aspect-ratio:1;border-radius:50%}
+.oradora img{box-shadow:0 0 0 1px var(--linha-escura),0 30px 60px -30px rgba(0,0,0,.6)}
+.oradora__surpresa{display:grid;place-items:center;border:1px dashed rgba(232,164,143,.55);font:italic 500 clamp(2.4rem,5vw,4rem)/1 var(--f-titulo);color:var(--vinho-claro)}
+.oradora h3{margin-top:22px;font-size:clamp(1.1rem,1.7vw,1.4rem)}
+.oradora p{margin-top:6px;font-size:.88rem;line-height:1.55;color:rgba(255,255,255,.66)}
+.oradora .papel{display:block;margin-top:14px;font:600 .66rem/1 var(--f-corpo);letter-spacing:.2em;text-transform:uppercase;color:var(--vinho-claro)}
+
+/* ---------- Inscrição ---------- */
+.inscricao{display:grid;grid-template-columns:.92fr 1.08fr;gap:var(--gap-col);align-items:start}
+@media (max-width:1000px){.inscricao{grid-template-columns:1fr}}
+.condicoes{list-style:none;margin-top:36px;border-top:1px solid var(--linha);counter-reset:n}
+.condicoes li{display:grid;grid-template-columns:46px 1fr;gap:10px;padding:18px 0;border-bottom:1px solid var(--linha);counter-increment:n;font-size:.93rem;line-height:1.6}
+.condicoes li::before{content:counter(n,decimal-leading-zero);font:italic 500 1.15rem/1.3 var(--f-titulo);color:var(--vinho)}
+.condicoes strong{color:var(--cacau);font-weight:600}
+
+.cartao{position:relative;background:#fff;border-radius:28px;padding:clamp(28px,4vw,52px);box-shadow:0 40px 80px -48px rgba(58,40,32,.45),0 0 0 1px var(--linha)}
+.cartao__topo{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:16px;padding-bottom:26px;margin-bottom:30px;border-bottom:1px dashed var(--linha)}
+.cartao__topo h3{font-size:clamp(1.5rem,2.4vw,2rem);font-weight:700;text-transform:uppercase;letter-spacing:-.01em;line-height:1.05}
+.cartao__topo h3 small{display:block;margin-bottom:6px;font:300 .9rem/1 var(--f-corpo);letter-spacing:.2em;color:var(--texto-suave)}
+.preco{text-align:right;font:700 clamp(2.4rem,4vw,3.2rem)/1 var(--f-titulo);color:var(--vinho)}
+.preco small{display:block;margin-top:6px;font:500 .72rem/1 var(--f-corpo);letter-spacing:.16em;text-transform:uppercase;color:var(--texto-suave)}
+
+.campo{margin-bottom:22px}
+.campo label,.campo legend{display:block;margin-bottom:9px;font:600 .8rem/1.3 var(--f-corpo);letter-spacing:.06em;color:var(--cacau)}
+.campo label b,.campo legend b{color:var(--vinho);font-weight:600}
+.campo input[type=text],.campo input[type=email],.campo input[type=tel]{width:100%;padding:15px 18px;border:1px solid rgba(58,40,32,.22);border-radius:14px;background:var(--creme);
+  font:400 1rem/1.3 var(--f-corpo);color:var(--cacau);transition:border-color .25s,background .25s,box-shadow .25s}
+.campo input::placeholder{color:#A08B7E}
+.campo input:focus{outline:none;border-color:var(--vinho);background:#fff;box-shadow:0 0 0 4px rgba(168,64,46,.12)}
+.campo.erro input{border-color:#B3261E;background:#FFF6F5}
+.campo .msg-erro{display:none;margin-top:7px;font-size:.8rem;color:#B3261E}
+.campo.erro .msg-erro{display:block}
+fieldset.campo{border:0}
+.opcoes{display:flex;gap:12px}
+.opcoes label{flex:1;margin:0;position:relative;cursor:pointer}
+.opcoes input{position:absolute;opacity:0;pointer-events:none}
+.opcoes span{display:flex;align-items:center;justify-content:center;gap:10px;padding:14px;border:1px solid rgba(58,40,32,.22);border-radius:999px;font:500 .95rem/1 var(--f-corpo);letter-spacing:.02em;color:var(--cacau);transition:all .25s}
+.opcoes span::before{content:"";width:14px;height:14px;border-radius:50%;border:1.5px solid currentColor;transition:all .25s}
+.opcoes input:checked + span{background:var(--cacau);border-color:var(--cacau);color:#fff}
+.opcoes input:checked + span::before{background:var(--vinho-claro);border-color:var(--vinho-claro);box-shadow:inset 0 0 0 3px var(--cacau)}
+.opcoes input:focus-visible + span{outline:2px solid var(--vinho);outline-offset:3px}
+.aceite{margin:6px 0 26px;font-size:.8rem;line-height:1.55;color:var(--texto-suave)}
+.form__acoes{display:flex;flex-wrap:wrap;align-items:center;gap:14px 24px}
+.form__acoes .btn{flex:1 1 260px}
+.limpar{background:none;border:0;cursor:pointer;font:500 .85rem var(--f-corpo);color:var(--texto-suave);text-decoration:underline;text-underline-offset:3px}
+.limpar:hover{color:var(--cacau)}
+.form-estado{margin-top:16px;font-size:.88rem;color:#B3261E;min-height:1px}
+
+.sucesso{display:none;text-align:center;padding:24px 0 8px}
+.sucesso__icone{display:grid;place-items:center;width:72px;height:72px;margin:0 auto 22px;border-radius:50%;background:var(--vinho);color:#fff}
+.sucesso h3{font-size:clamp(2rem,3.4vw,2.6rem)}
+.sucesso p{margin:14px auto 0;color:var(--texto-suave)}
+.sucesso .passos{margin:26px auto 0;max-width:46ch;text-align:left;list-style:none;border-top:1px solid var(--linha)}
+.sucesso .passos li{padding:12px 0;border-bottom:1px solid var(--linha);font-size:.9rem}
+.cartao.enviado form,.cartao.enviado .cartao__topo{display:none}
+.cartao.enviado .sucesso{display:block}
+
+/* ---------- FAQ ---------- */
+.faq{max-width:860px;border-top:1px solid var(--linha)}
+.faq details{border-bottom:1px solid var(--linha)}
+.faq summary{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:24px 0;cursor:pointer;list-style:none;font:500 clamp(1.08rem,1.6vw,1.3rem)/1.3 var(--f-titulo);color:var(--cacau)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";flex:none;display:grid;place-items:center;width:34px;height:34px;border:1px solid var(--linha);border-radius:50%;font:300 1.3rem/1 var(--f-corpo);transition:transform .35s var(--ease),background .35s,color .35s}
+.faq details[open] summary::after{transform:rotate(45deg);background:var(--cacau);color:#fff}
+.faq details p{padding:0 0 24px;color:var(--texto-suave)}
+
+/* ---------- CTA final + rodapé ---------- */
+.fecho{position:relative;overflow:hidden;background:linear-gradient(100deg,#3A2820 0%,#4A3026 55%,#6B3A28 100%)}
+.fecho h2{max-width:20ch}
+.fecho .btn{margin-top:34px}
+.fecho .micro{color:rgba(255,255,255,.62)}
+.fecho .micro::before{background:var(--vinho-claro)}
+/* faixa igual à do formulário (cor medida: #48423D) */
+.parceiro{background:#48423D;color:#fff}
+.parceiro .wrap{display:flex;justify-content:space-between;align-items:center;gap:24px;padding-block:clamp(28px,4vw,44px)}
+.parceiro__site{font:600 clamp(.8rem,1.1vw,.95rem)/1 var(--f-corpo);letter-spacing:.06em;text-decoration:none;color:#fff;opacity:.92;transition:opacity .3s}
+.parceiro__site:hover{opacity:1;text-decoration:underline;text-underline-offset:4px}
+.parceiro__marca{text-align:right;font:700 clamp(.78rem,1vw,.9rem)/1.12 var(--f-corpo);letter-spacing:.14em}
+.parceiro__marca::after{content:"";display:block;width:32px;height:2px;margin:8px 0 0 auto;background:#fff}
+.rodape{background:#2A1D17;color:rgba(255,255,255,.6);padding:24px 0;font-size:.88rem}
+.rodape a{color:#fff;text-decoration:none}
+.rodape__topo{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:24px}
+.rodape__topo img{height:64px;width:auto}
+.rodape__base{margin-top:40px;padding-top:20px;border-top:1px solid var(--linha-escura);display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font-size:.74rem;letter-spacing:.1em;text-transform:uppercase}
+
+/* ---------- CTA fixo mobile ---------- */
+.cta-fixo{position:fixed;left:16px;right:16px;bottom:16px;z-index:40;display:none;justify-content:center;transform:translateY(140%);transition:transform .45s var(--ease)}
+.cta-fixo .btn{width:100%;box-shadow:0 18px 40px -18px rgba(0,0,0,.6)}
+.cta-fixo.on{transform:none}
+@media (max-width:860px){.cta-fixo{display:flex}}
+
+/* ---------- Reveal ---------- */
+.js .rv{opacity:0;transform:translateY(24px);transition:opacity .8s var(--ease),transform .8s var(--ease);transition-delay:calc(var(--i,0) * 70ms)}
+.js .rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .js .rv{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+<a class="saltar" href="#conteudo">Saltar para o conteúdo</a>
+
+<header class="topo" id="topo">
+  <div class="wrap">
+    <a class="topo__logo" href="#"><img src="assets/img/logo-spa.png" alt="Spa Real Therapy" width="360" height="240"></a>
+    <ul class="topo__nav">
+      <li><a href="#encontro">O encontro</a></li>
+      <li><a href="#inscricao">Inscrição</a></li>
+    </ul>
+    <a class="btn" href="#inscricao">Inscrever-me</a>
+  </div>
+</header>
+
+<main id="conteudo">
+  <!-- HERO: réplica fiel do flyer -->
+  <section class="hero">
+    <div class="hero__grelha">
+      <div class="hero__texto">
+        <p class="hero__data sombra rv">28 NOVEMBRO 2026<br>9:30 - 13:00</p>
+        <p class="hero__nome sombra rv" style="--i:1">Mind Retreat</p>
+        <h1 class="hero__titulo rv" style="--i:2">O que nos reserva o&nbsp;futuro?</h1>
+        <p class="hero__com sombra rv" style="--i:3">Com Mafalda Almeida</p>
+        <p class="hero__convidadas sombra rv" style="--i:3">Isabel Neves<br>Judite Sousa</p>
+        <p class="hero__local sombra rv" style="--i:4">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+          No Grande Real Villa Itália
+        </p>
+        <div class="hero__ctas rv" style="--i:5">
+          <a class="btn btn--claro" href="#inscricao">Quero garantir o meu lugar <span class="seta">→</span></a>
+          <a class="link sombra" href="#encontro">Saber mais ↓</a>
+        </div>
+      </div>
+      <div class="hero__visual">
+        <div class="hero__mafalda rv" style="--i:1">
+          <img src="assets/img/mafalda-almeida.webp" alt="Mafalda Almeida" width="800" height="1030" fetchpriority="high">
+        </div>
+        <div class="hero__circulos">
+          <figure class="rv" style="--i:2"><img src="assets/img/isabel-neves.webp" alt="Isabel Neves" width="348" height="348"><figcaption>Isabel Neves</figcaption></figure>
+          <figure class="rv" style="--i:3"><img src="assets/img/judite-sousa.webp" alt="Judite Sousa" width="352" height="352"><figcaption>Judite Sousa</figcaption></figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="faixa" aria-hidden="true"><div class="faixa__trilho">
+    <span>O que nos reserva o futuro?</span><span>Mind Retreat</span><span>28 de novembro de 2026</span><span>Grande Real Villa Itália</span>
+    <span>O que nos reserva o futuro?</span><span>Mind Retreat</span><span>28 de novembro de 2026</span><span>Grande Real Villa Itália</span>
+  </div></div>
+
+  <!-- O ENCONTRO: texto do formulário oficial -->
+  <section class="sec" id="encontro">
+    <div class="wrap encontro">
+      <div>
+        <p class="eyebrow rv">01 · O encontro</p>
+        <h2 class="rv">Este Mind Retreat vai ser <em>ainda mais especial!</em></h2>
+        <p class="lead rv">Teremos como convidadas Judite Sousa e Isabel Neves, que vão desenvolver connosco uma conversa de enorme inspiração.</p>
+        <p class="rv">Ainda vamos contar com duas palestras surpresa, por parte das participantes nos nossos encontros ao longo do ano, e Mafalda Almeida também vai partilhar a sua visão sobre o futuro.</p>
+        <p class="rv">Venha passar uma manhã repleta de conteúdos e dinâmicas, rodeada de pessoas inspiradoras, enquanto usufrui de um coffee break saudável.</p>
+        <p class="citacao rv">O que nos reserva o futuro?</p>
+      </div>
+      <ul class="factos">
+        <li class="rv"><span>Data</span><strong>28 de novembro de 2026</strong></li>
+        <li class="rv" style="--i:1"><span>Horário</span><strong>9h30 às 13h00</strong></li>
+        <li class="rv" style="--i:2"><span>Local</span><strong>Grande Real Villa Itália</strong></li>
+        <li class="rv" style="--i:3"><span>Valor</span><strong>20 € por pessoa<small>Pagamento antecipado para garantir a reserva</small></strong></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- INSCRIÇÃO: campos iguais ao Google Forms -->
+  <section class="sec sec--nevoa" id="inscricao">
+    <div class="wrap inscricao">
+      <div>
+        <p class="eyebrow rv">02 · Inscrição</p>
+        <h2 class="rv">Inscreva-se <em>no evento.</em></h2>
+        <p class="lead rv">Inscreva-se no evento Mind Retreat: O que nos reserva o futuro?, que irá decorrer no dia 28 de novembro de 2026, das 9h30 às 13h00, através deste formulário.</p>
+        <p class="eyebrow rv" style="margin-top:44px">Condições de inscrição</p>
+        <ol class="condicoes">
+          <li class="rv"><p>Inscrições aceites até <strong>3 dias antes do evento</strong>, sujeitas a disponibilidade.</p></li>
+          <li class="rv"><p><strong>1 inscrição por resposta</strong> ao formulário. Caso deseje fazer várias inscrições terá que enviar várias respostas com os dados de cada pessoa que está a inscrever.</p></li>
+          <li class="rv"><p>Valor: <strong>20 € por pessoa.</strong></p></li>
+          <li class="rv"><p>É necessário o <strong>pagamento antecipado</strong> para garantir a sua reserva. Não reembolsável em cancelamentos com menos de 48h de antecedência.</p></li>
+          <li class="rv"><p>Quando nos enviar a resposta a este formulário, a equipa do SPA irá enviar para o seu e-mail um link para proceder ao pagamento (o envio não é automático). A inscrição só fica confirmada após confirmarmos o pagamento e lhe enviarmos um <strong>e-mail de confirmação.</strong></p></li>
+          <li class="rv"><p>Estes eventos são filmados e fotografados para criar conteúdos nas nossas redes sociais, ao inscrever-se está a aceitar que a sua imagem seja utilizada para este fim.</p></li>
+        </ol>
+      </div>
+
+      <div class="cartao rv" id="cartao">
+        <div class="cartao__topo">
+          <h3><small>Mind Retreat</small>Inscrição</h3>
+          <p class="preco">20 €<small>por pessoa</small></p>
+        </div>
+
+        <form id="form" novalidate>
+          <div class="campo" data-campo="nome">
+            <label for="f-nome">Nome e apelido: <b>*</b></label>
+            <input id="f-nome" name="nome" type="text" autocomplete="name" required>
+            <p class="msg-erro">Esta pergunta é obrigatória.</p>
+          </div>
+          <div class="campo" data-campo="email">
+            <label for="f-email">E-mail: <b>*</b></label>
+            <input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" required>
+            <p class="msg-erro">Esta pergunta é obrigatória.</p>
+          </div>
+          <div class="campo" data-campo="telemovel">
+            <label for="f-tel">Telemóvel: <b>*</b></label>
+            <input id="f-tel" name="telemovel" type="tel" autocomplete="tel" inputmode="tel" required>
+            <p class="msg-erro">Esta pergunta é obrigatória.</p>
+          </div>
+          <fieldset class="campo" data-campo="info">
+            <legend>Deseja receber informações sobre os próximos eventos? <b>*</b></legend>
+            <div class="opcoes">
+              <label><input type="radio" name="info" value="Sim" required><span>Sim</span></label>
+              <label><input type="radio" name="info" value="Não"><span>Não</span></label>
+            </div>
+            <p class="msg-erro">Esta pergunta é obrigatória.</p>
+          </fieldset>
+
+          <p class="aceite"><b style="color:var(--vinho)">*</b> Indica uma pergunta obrigatória</p>
+
+          <div class="form__acoes">
+            <button class="btn" type="submit" id="enviar">Enviar inscrição <span class="seta">→</span></button>
+            <button class="limpar" type="reset">Limpar formulário</button>
+          </div>
+          <p class="form-estado" id="estado" role="status" aria-live="polite"></p>
+        </form>
+
+        <div class="sucesso" id="sucesso" tabindex="-1">
+          <div class="sucesso__icone" aria-hidden="true"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12.5 10 17 19 7.5"/></svg></div>
+          <h3>Obrigado!</h3>
+          <p>À sua disposição para lhe proporcionar experiências memoráveis!</p>
+          <ol class="passos">
+            <li>A equipa do SPA irá enviar para o seu e-mail um link para proceder ao pagamento (o envio não é automático).</li>
+            <li>A inscrição só fica confirmada após confirmarmos o pagamento e lhe enviarmos um e-mail de confirmação.</li>
+          </ol>
+          <button class="limpar" type="button" id="outra" style="margin-top:22px">Inscrever outra pessoa</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec sec--escura fecho" id="fecho">
+    <div class="wrap">
+      <p class="eyebrow rv">Mind Retreat · 28 de novembro de 2026</p>
+      <h2 class="rv">O que nos reserva <em>o futuro?</em></h2>
+      <a class="btn btn--claro rv" href="#inscricao">Quero garantir o meu lugar <span class="seta">→</span></a>
+      <p class="micro rv">Inscrições aceites até 3 dias antes do evento, sujeitas a disponibilidade.</p>
+    </div>
+  </section>
+</main>
+
+<!-- Faixa do cabeçalho do Google Forms: Real Spa Therapy / Real Hotels Group -->
+<div class="parceiro">
+  <div class="wrap">
+    <a class="parceiro__site" href="https://realspatherapy.com" target="_blank" rel="noopener">REALSPATHERAPY.COM</a>
+    <span class="parceiro__marca" aria-label="Real Hotels Group">REAL<br>HOTELS<br>GROUP</span>
+  </div>
+</div>
+
+<footer class="rodape">
+  <div class="wrap">
+    <div class="rodape__base" style="margin-top:0;padding-top:0;border-top:0">
+      <span>© <span id="ano"></span> Mind Retreat</span>
+      <span>Design e desenvolvimento: Grupo Cado</span>
+    </div>
+  </div>
+</footer>
+
+<div class="cta-fixo" id="ctaFixo"><a class="btn" href="#inscricao">Quero garantir o meu lugar</a></div>
+
+<script>
+/* ===== DADOS: tudo o que muda fica aqui ===== */
+const DADOS = {
+  /* As respostas entram no MESMO Google Form original (mesmos IDs de campo).
+     No Forms: Respostas → "Ligar ao Sheets" e ficam na folha de cálculo. */
+  googleForm: {
+    url: 'https://docs.google.com/forms/d/e/1FAIpQLScGhQVb7lTteYRetGlrLD_gXPAIacUxGuGgZ6gKJcI04JhMaw/formResponse',
+    campos: { nome:'entry.429202456', email:'entry.1388486080', telemovel:'entry.357638998', info:'entry.1233582154' }
+  },
+  /* Opcional: URL de uma Web App do Google Apps Script que escreve direto numa planilha.
+     PENDENTE: preencher quando houver a planilha. Vazio = não usa. */
+  planilhaWebApp: 'https://script.google.com/macros/s/AKfycbxsLF5hym0WRI1XBABVY8UXUXATpVuNqfv2GWeCl7524p72iVV4W7cvK4AeVAdsk1pf/exec'
+};
+
+document.documentElement.classList.add('js');
+document.getElementById('ano').textContent = new Date().getFullYear();
+
+/* Header: ganha fundo após 24px */
+const topo = document.getElementById('topo');
+const onScroll = () => topo.classList.toggle('rolado', scrollY > 24);
+addEventListener('scroll', onScroll, {passive:true}); onScroll();
+
+/* Reveal */
+const io = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+}), {threshold:.12, rootMargin:'0px 0px -6% 0px'});
+document.querySelectorAll('.rv').forEach(el => io.observe(el));
+
+/* CTA fixo mobile: aparece depois do hero, some na inscrição, no fecho e no rodapé */
+const cta = document.getElementById('ctaFixo');
+let passouHero = false; const vis = new Set();
+const upd = () => cta.classList.toggle('on', passouHero && vis.size === 0);
+new IntersectionObserver(([e]) => { passouHero = !e.isIntersecting; upd(); }).observe(document.querySelector('.hero'));
+const ioFim = new IntersectionObserver(es => { es.forEach(e => e.isIntersecting ? vis.add(e.target) : vis.delete(e.target)); upd(); });
+['inscricao','fecho'].forEach(id => ioFim.observe(document.getElementById(id)));
+ioFim.observe(document.querySelector('.rodape'));
+
+/* ===== Formulário ===== */
+const form = document.getElementById('form');
+const cartao = document.getElementById('cartao');
+const estado = document.getElementById('estado');
+const btn = document.getElementById('enviar');
+
+const validar = {
+  nome: v => v.trim().split(/\s+/).length >= 2,
+  email: v => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim()),
+  telemovel: v => v.replace(/[^\d]/g,'').length >= 9,
+  info: () => !!form.querySelector('input[name=info]:checked')
+};
+const marcar = (campo, ok) => form.querySelector(`[data-campo="${campo}"]`).classList.toggle('erro', !ok);
+
+form.addEventListener('input', e => {
+  const c = e.target.closest('[data-campo]'); if (!c || !c.classList.contains('erro')) return;
+  const k = c.dataset.campo; marcar(k, validar[k](form.elements[k].value || ''));
+});
+form.addEventListener('reset', () => { form.querySelectorAll('.erro').forEach(c => c.classList.remove('erro')); estado.textContent=''; });
+
+form.addEventListener('submit', async e => {
+  e.preventDefault();
+  const d = { nome: form.nome.value.trim(), email: form.email.value.trim(), telemovel: form.telemovel.value.trim(),
+              info: (form.querySelector('input[name=info]:checked')||{}).value || '' };
+  let primeiroErro = null;
+  Object.keys(validar).forEach(k => { const ok = validar[k](d[k]); marcar(k, ok); if (!ok && !primeiroErro) primeiroErro = k; });
+  if (primeiroErro){
+    const alvo = primeiroErro === 'info' ? form.querySelector('input[name=info]') : form.elements[primeiroErro];
+    alvo.focus(); estado.textContent = 'Reveja os campos assinalados.'; return;
+  }
+
+  btn.disabled = true; btn.firstChild.textContent = 'A enviar… '; estado.textContent = '';
+  const corpo = new URLSearchParams();
+  Object.entries(DADOS.googleForm.campos).forEach(([k, entry]) => corpo.append(entry, d[k]));
+
+  const pedidos = [fetch(DADOS.googleForm.url, { method:'POST', mode:'no-cors', body:corpo })];
+  if (DADOS.planilhaWebApp){
+    const p = new URLSearchParams({ ...d, data: new Date().toISOString() });
+    pedidos.push(fetch(DADOS.planilhaWebApp, { method:'POST', mode:'no-cors', body:p }));
+  }
+  try{
+    await Promise.all(pedidos);
+    cartao.classList.add('enviado');
+    document.getElementById('sucesso').focus();
+    cartao.scrollIntoView({behavior:'smooth', block:'center'});
+  }catch(err){
+    estado.textContent = 'Não foi possível enviar. Verifique a ligação à internet e tente novamente.';
+  }finally{
+    btn.disabled = false; btn.firstChild.textContent = 'Enviar inscrição ';
+  }
+});
+
+document.getElementById('outra').addEventListener('click', () => {
+  form.reset(); cartao.classList.remove('enviado'); form.nome.focus();
+});
+</script>
+</body>
+</html>
