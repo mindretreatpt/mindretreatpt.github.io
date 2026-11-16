@@ -60,8 +60,10 @@ h3{font-size:clamp(1.3rem,2vw,1.7rem);line-height:1.25}
 h2 em{font-style:italic;color:var(--vinho)}
 p{max-width:60ch;text-wrap:pretty}
 .lead{font-size:clamp(1.05rem,1.2vw,1.15rem);color:var(--texto-suave)}
-.eyebrow{display:flex;align-items:center;gap:12px;font:600 .74rem/1 var(--f-corpo);letter-spacing:.24em;text-transform:uppercase;color:var(--vinho-escuro)}
-.eyebrow::before{content:"";width:28px;height:1px;background:currentColor;opacity:.6}
+/* line-height 1.6: se o eyebrow partir em 2 linhas no telemóvel, as linhas não colam */
+.eyebrow{display:flex;align-items:flex-start;gap:12px;font:600 .74rem/1.6 var(--f-corpo);letter-spacing:.24em;text-transform:uppercase;color:var(--vinho-escuro)}
+.eyebrow::before{content:"";flex:none;width:28px;height:1px;margin-top:.8em;background:currentColor;opacity:.6}
+@media (max-width:520px){.eyebrow{letter-spacing:.16em}}
 .eyebrow + h2{margin-top:20px}
 h2 + p,h2 + .lead{margin-top:22px}
 p + p{margin-top:16px}
